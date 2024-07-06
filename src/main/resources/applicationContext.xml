@@ -18,11 +18,15 @@
     </bean>
 
     <bean id="classicalMusic"
-          class="ru.myspring.first.ClassicalMusic">
+          class="ru.myspring.first.ClassicalMusic"
+    init-method="doMyInit"
+    destroy-method="doMyDestroy"
+    factory-method="getClassicalMusic">
     </bean>
 
     <bean id="musicPlayer"
-          class="ru.myspring.first.MusicPlayer">
+          class="ru.myspring.first.MusicPlayer"
+          scope="prototype">
         <property name="musicList">
             <list>
                 <ref bean="classicalMusic"/>
