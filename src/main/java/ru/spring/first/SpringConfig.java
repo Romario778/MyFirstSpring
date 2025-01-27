@@ -1,11 +1,13 @@
 package ru.spring.first;
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.*;
 
 @Configuration
 @PropertySource("classpath:musicPlayer.properties")
 public class SpringConfig {
     @Bean
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public ClassicalMusic classicalMusic() {
         return new ClassicalMusic();
     }
